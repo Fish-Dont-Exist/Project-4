@@ -1,20 +1,30 @@
+import com.sun.jdi.InterfaceType;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class MaxHeapDriver
 {
     public static void main(String[] args) throws FileNotFoundException {
-        System.out.println("Hello world ");
-
         // Read in input file
         File file = new File("C:\\Users\\perez\\Desktop\\CS 2400\\Project-4\\data_random.txt");
         Scanner sc = new Scanner(file);
 
-        while (sc.hasNext())
-        {
-            System.out.println(sc.nextLine());
-        }
+        // Initialize array of data points
+        Integer[] contents = {1, 2, 3, 4, 5, 6, 7};
+
+        // Create instance of MaxHeap
+        MaxHeap<Integer> heap1 = new MaxHeap<>();
+
+        heap1.sequentialInsertion(contents);
+
+        System.out.println(heap1.getSize());
+//        while (sc.hasNext())
+//        {
+//            System.out.println(sc.nextLine());
+//        }
 
     }
 

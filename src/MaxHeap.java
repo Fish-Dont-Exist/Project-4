@@ -134,6 +134,14 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 
 	public int getNumSwaps() {return numSwaps; }
 
+	public void sequentialInsertion(T[] test)
+	{
+		for (int i = 0; i < test.length; i ++)
+		{
+			this.add(test[i]);
+		}
+	}
+
 	public void checkCapacity(int cap)
 	{
 		if(cap > MAX_CAPACITY || cap < 0)
