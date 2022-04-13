@@ -21,10 +21,11 @@ public class MaxHeapDriver
         heap1.sequentialInsertion(contents);
 
         System.out.println(heap1.getSize());
-//        while (sc.hasNext())
-//        {
-//            System.out.println(sc.nextLine());
-//        }
+
+        // Let's try with the optimal method
+        MaxHeap<Integer> heap2 = new MaxHeap<>(contents);
+
+        System.out.println(heap2);
 
     }
 
