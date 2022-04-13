@@ -2,7 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Main
+public class MaxHeapDriver
 {
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println("Hello world ");

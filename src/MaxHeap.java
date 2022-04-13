@@ -6,6 +6,8 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 	private boolean initialized = false;
 	private static final int DEFAULT_CAPACITY = 25;
 	private static final int MAX_CAPACITY = 10000;
+	private int numSwaps = 0; // number of swaps
+
 
 	public MaxHeap()
 	{
@@ -130,11 +132,7 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 		heap[rootIndex] = orphan;
 	} // end reheap
 
-
-
-
-
-
+	public int getNumSwaps() {return numSwaps; }
 
 	public void checkCapacity(int cap)
 	{
