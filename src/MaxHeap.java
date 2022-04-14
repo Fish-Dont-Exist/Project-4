@@ -151,13 +151,20 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 	{
 		if(capacity > MAX_CAPACITY) throw new IllegalStateException("Attempt to create a heap whose" +
 				" capacity exceeds allowed " + "maximum of " + MAX_CAPACITY);
-			lastIndex = 0; // need to make exception
+//			lastIndex = 0; // need to make exception
 			
 	} // end checkCapacity
 
 	public void ensureCapacity()
 	{
 		checkCapacity(lastIndex);
+		if (lastIndex >= heap.length - 1)
+		{
+			int newLength = 2 * heap.length;
+			checkCapacity(newLength);
+			heap = Arrays.copyOf(heap, newLength);
+		}
+
 	} // end ensureCapacity()
 
 	public void checkInitialization()
