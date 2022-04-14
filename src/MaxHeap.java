@@ -31,6 +31,7 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 	public MaxHeap(T[] entries)
 	{
 		this(entries.length); // call other constructor
+		lastIndex = entries.length;
 		assert initialized = true;
 
 		// copy given array to data field
@@ -111,7 +112,7 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 		T orphan = heap[rootIndex];
 		int leftChildIndex = 2 * rootIndex;
 
-		while (!done && leftChildIndex <- lastIndex)
+		while (!done && leftChildIndex <= lastIndex)
 		{
 			int largerChildIndex = leftChildIndex; // assume larger
 			int rightChildIndex = leftChildIndex + 1;
