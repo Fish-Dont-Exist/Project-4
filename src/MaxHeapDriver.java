@@ -28,16 +28,4 @@ public class MaxHeapDriver
         System.out.println(heap2);
 
     }
-
-    public static String sequentialInsertions()
-    {
-        // Implement the remove method of a max-heap
-        return null;
-    }
-
-    public static String optimalMethod()
-    {
-        // Implement the remove method of a max-heap
-        return null;
-    }
 }
