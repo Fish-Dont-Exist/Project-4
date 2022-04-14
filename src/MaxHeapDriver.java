@@ -34,7 +34,7 @@ public class MaxHeapDriver
 
         // Perform sequential insertions for the 100 integers
         // Insert all 100 characters into an array
-        int[] inputContent = new int[100];
+        Integer[] inputContent = new Integer[100];
 
         while (sc.hasNextLine())
         {
@@ -42,7 +42,13 @@ public class MaxHeapDriver
             inputContent[i] = Integer.parseInt(sc.nextLine());
         }
 
-        
+        // Create a max heap using sequential insertions
+        MaxHeap<Integer> sequentialInsertionHeap = new MaxHeap<>();
+
+        // Insert the values
+        sequentialInsertionHeap.sequentialInsertion(inputContent);
+
+        System.out.println(sequentialInsertionHeap.getNumSwaps());
 
 
 

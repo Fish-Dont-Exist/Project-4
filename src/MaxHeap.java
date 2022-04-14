@@ -147,9 +147,10 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 		}
 	}
 
-	public void checkCapacity(int cap)
+	public void checkCapacity(int capacity)
 	{
-		if(cap > MAX_CAPACITY || cap < 0)
+		if(capacity > MAX_CAPACITY) throw new IllegalStateException("Attempt to create a heap whose" +
+				" capacity exceeds allowed " + "maximum of " + MAX_CAPACITY);
 			lastIndex = 0; // need to make exception
 			
 	} // end checkCapacity
