@@ -20,12 +20,12 @@ public class MaxHeapDriver
 
         heap1.sequentialInsertion(contents);
 
-        System.out.println(heap1.getSize());
+        System.out.println(heap1.getNumSwaps());
 
         // Let's try with the optimal method
         MaxHeap<Integer> heap2 = new MaxHeap<>(contents);
 
-        System.out.println(heap2);
+        System.out.println(heap2.getNumSwaps());
 
     }
 }

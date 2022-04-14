@@ -86,6 +86,7 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 			heap[newIndex] = heap[parentIndex];
 			newIndex = parentIndex;
 			parentIndex = newIndex / 2;
+			numSwaps++; // keep track of the number of swaps
 		} // end while
 		heap[newIndex] = newEntry;
 		lastIndex++;
@@ -129,6 +130,9 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 			}
 			else
 				done = true;
+
+			// keep track of the number of swaps
+			numSwaps++;
 		} // end while
 		heap[rootIndex] = orphan;
 	} // end reheap
