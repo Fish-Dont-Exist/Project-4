@@ -12,23 +12,23 @@ import java.util.Arrays;
 public class MaxHeapDriver
 {
     public static void main(String[] args) throws IOException {
-        // Read in input file
+        // Read in the sorted_data input file
         File file = new File("data_sorted.txt");
         Scanner sc = new Scanner(file);
 
         // Read in data from the input files
-        Integer[] inputConetent = new Integer[100];
+        Integer[] inputContent = new Integer[100];
         for (int i = 0; i < 100; i++)
         {
-            inputConetent[i] = sc.nextInt();
+            inputContent[i] = sc.nextInt();
         }
 
         // Perform sequential insertions for the 100 integers
-        MaxHeap<Integer> sequentialHeap = new MaxHeap<>(inputConetent, true);
+        MaxHeap<Integer> sequentialHeap = new MaxHeap<>(inputContent, true);
 
 
         // Perform optimal insertion for the 100 integers
-        MaxHeap<Integer> optimalHeap = new MaxHeap<>(inputConetent);
+        MaxHeap<Integer> optimalHeap = new MaxHeap<>(inputContent);
 
 
         try
@@ -51,6 +51,23 @@ public class MaxHeapDriver
             System.out.println("An error has occurred. ");
             e.printStackTrace();
         }
+
+
+        // Read in the random_data input file
+
+
+
+        // Read in data form the input file
+
+
+        // Perform sequential insertions for the 100 integers
+
+
+        // Perform optimal insertion for the 100 integers
+
+
+        // Create try-catch block like before
+
     }
 
     private static void outputToFile(MaxHeap<Integer> insertedHeap, FileWriter fileWrite) throws IOException
