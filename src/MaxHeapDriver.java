@@ -35,7 +35,17 @@ public class MaxHeapDriver
         {
             FileWriter fileWrite = new FileWriter("output.txt");
 
-            // Write sequential results to file 
+            // Write sequential results to file
+            outputToFile(sequentialHeap, fileWrite);
+
+            // Create space between the results
+            fileWrite.write("\n\n");
+
+            // Write to optimal results to file
+            outputToFile(optimalHeap, fileWrite);
+
+
+            fileWrite.close();
         } catch (IOException e)
         {
             System.out.println("An error has occurred. ");
@@ -43,8 +53,39 @@ public class MaxHeapDriver
         }
     }
 
-    private void outputToFile()
+    private static void outputToFile(MaxHeap<Integer> insertedHeap, FileWriter fileWrite) throws IOException
     {
+        // Create array from heap
+        Comparable[] heapArray = insertedHeap.getHeap();
 
+        // Output the first 10 integers of the array to the output file
+        fileWrite.write("Heap built using sequential insertions: ");
+        for (int i = 1; i <= 10; i++)
+        {
+            fileWrite.write( (Integer) heapArray[i] + ",");
+        }
+        fileWrite.write("...");
+
+        // Output the number of swaps performed into the output file
+        fileWrite.write("\n");
+        fileWrite.write("Number of swaps in the heap creation: ");
+
+        fileWrite.write(String.valueOf(insertedHeap.getNumSwaps()));
+
+        // Perform 10 removals on the heap
+        for (int i = 0; i < 10; i++)
+        {
+            insertedHeap.removeMax();
+        }
+
+        // Output the first 10 integers of the resulting array
+        fileWrite.write("\n");
+        fileWrite.write("Heap after 10 removals: ");
+        Comparable[] heapArrayAfterRemoval = insertedHeap.getHeap();
+        for (int i = 1; i <= 10; i++)
+        {
+            fileWrite.write((Integer) heapArrayAfterRemoval[i] + ",");
+        }
+        fileWrite.write("...");
     }
 }
