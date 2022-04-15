@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -12,55 +13,29 @@ public class MaxHeapDriver
 {
     public static void main(String[] args) throws IOException {
         // Read in input file
-        File file = new File("data_random.txt");
+        File file = new File("dat_sorted.txt");
         Scanner sc = new Scanner(file);
 
-        // Test the two methods of creating heaps
-        // Initialize array of data points
-        Integer[] contents = {1, 2, 3, 4, 5, 6, 7};
-
-        // Create instance of MaxHeap
-        MaxHeap<Integer> heap1 = new MaxHeap<>(contents, true);
-
-        System.out.println(heap1.getNumSwaps());
-
-
-        // Let's try with the optimal method
-        MaxHeap<Integer> heap2 = new MaxHeap<>(contents);
-
-        System.out.println(heap2.getNumSwaps());
-
-
-        // Perform sequential insertions for the 100 integers
-        // Insert all 100 characters into an array
-        int[] inputContent = new int[100];
-
-        while (sc.hasNextLine())
+        // Read in data from the input files
+        Integer[] inputConetent = new Integer[100];
+        for (int i = 0; i < 100; i++)
         {
-            for (int i = 0; i < inputContent.length; i++)
-            inputContent[i] = sc.nextInt();
+            inputConetent[i] = sc.nextInt();
         }
 
-        System.out.println(inputContent);
-
-        // Create a max heap using sequential insertions
-        MaxHeap<Integer> sequentialInsertionHeap = new MaxHeap<>();
+        // Perform sequential insertions for the 100 integers
+        MaxHeap<Integer> sequentialHeap = new MaxHeap<>(inputConetent, true);
 
 
-//        sequentialInsertionHeap.sequentialInsertion(inputContent);
-//
-//        System.out.println(sequentialInsertionHeap.getNumSwaps());
+        // Perform optimal insertion for the 100 integers
+        MaxHeap<Integer> optimalHeap = new MaxHeap<>(inputConetent);
 
 
-        // Write to file
         try
         {
             FileWriter fileWrite = new FileWriter("output.txt");
 
-            while (sc.hasNext())
-            {
-                System.out.println(sc.nextLine());
-            }
+            // Write sequential results to file 
         } catch (IOException e)
         {
             System.out.println("An error has occurred. ");

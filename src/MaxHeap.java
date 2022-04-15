@@ -51,17 +51,7 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 	{
 		// just added
 		this(entries.length);
-//		lastIndex = entries.length;
-//		assert initialized = true;
-
 		sequentialInsertion(entries);
-//		if (flag)
-//		{
-//			for (int i = 1; i < entries.length; i ++)
-//			{
-//				this.add(entries[i]);
-//			}
-//		}
 	}
 
 	public T getMax()
@@ -191,7 +181,4 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 			lastIndex = 0; // need to make exception
 	
 	} // end checkINitialization
-
-
-
 }
