@@ -28,6 +28,10 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 		initialized = true;
 	}
 
+	/**
+	 * Optimal method in the form of a constructor. Calls reheap() function.
+	 * @param entries Array of comparable data type
+	 */
 	public MaxHeap(T[] entries)
 	{
 		this(entries.length); // call other constructor
@@ -47,11 +51,24 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 		}
 	} // end constructor
 
+	/**
+	 * Constructor that calls private method sequential insertion method. Takes in an array of comparable data type and
+	 * a boolean flag.
+	 * @param entries
+	 * @param flag If flag is set to true, will call the sequential insertion private method. Else, will print statement
+	 */
 	public MaxHeap(T[] entries, boolean flag)
 	{
-		// just added
 		this(entries.length);
-		sequentialInsertion(entries);
+		// just added
+		if (flag)
+		{
+			sequentialInsertion(entries);
+		}
+		else
+		{
+			System.out.println("If you would like call the optimal method, please remove boolean flag. ");
+		}
 	}
 
 	public T getMax()
@@ -135,25 +152,37 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 				heap[rootIndex] = heap[largerChildIndex];
 				rootIndex = largerChildIndex;
 				leftChildIndex = 2 * rootIndex;
+
+				// Keep track of the number of swaps
+				numSwaps++;
 			}
 			else
+			{
 				done = true;
-
-			// keep track of the number of swaps
-			numSwaps++;
+			}
 		} // end while
 		heap[rootIndex] = orphan;
 	} // end reheap
 
 	public int getNumSwaps() {return numSwaps; }
 
-	private void sequentialInsertion(T[] test)
+	/**
+	 * Takes in an array of comparable data types T and sequentially inserts that data into a heap by calling add.
+	 * @param content Array of comparable data type
+	 */
+	private void sequentialInsertion(T[] content)
 	{
-		for (int i = 0; i < test.length; i ++)
+		for (int i = 0; i < content.length; i ++)
 		{
-			this.add(test[i]);
+			this.add(content[i]);
 		}
 	}
+
+	/**
+	 * Returns the heap array
+	 * @return T[] Array of data type T
+	 */
+	public T[] getHeap() { return heap; }
 
 	public void checkCapacity(int capacity)
 	{
