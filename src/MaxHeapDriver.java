@@ -13,7 +13,7 @@ public class MaxHeapDriver
 {
     public static void main(String[] args) throws IOException {
         // Read in input file
-        File file = new File("dat_sorted.txt");
+        File file = new File("data_sorted.txt");
         Scanner sc = new Scanner(file);
 
         // Read in data from the input files
