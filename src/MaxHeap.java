@@ -39,12 +39,30 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 		{
 			heap[index + 1] = entries[index];
 		}
+
 		// create heap
 		for (int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--)
 		{
 			reheap(rootIndex);
 		}
 	} // end constructor
+
+	public MaxHeap(T[] entries, boolean flag)
+	{
+		// just added
+		this(entries.length);
+//		lastIndex = entries.length;
+//		assert initialized = true;
+
+		sequentialInsertion(entries);
+//		if (flag)
+//		{
+//			for (int i = 1; i < entries.length; i ++)
+//			{
+//				this.add(entries[i]);
+//			}
+//		}
+	}
 
 	public T getMax()
 	{
@@ -139,7 +157,7 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 
 	public int getNumSwaps() {return numSwaps; }
 
-	public void sequentialInsertion(T[] test)
+	private void sequentialInsertion(T[] test)
 	{
 		for (int i = 0; i < test.length; i ++)
 		{

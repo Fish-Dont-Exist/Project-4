@@ -12,7 +12,7 @@ public class MaxHeapDriver
 {
     public static void main(String[] args) throws IOException {
         // Read in input file
-        File file = new File("C:\\Users\\perez\\Desktop\\CS 2400\\Project-4\\data_random.txt");
+        File file = new File("data_random.txt");
         Scanner sc = new Scanner(file);
 
         // Test the two methods of creating heaps
@@ -20,11 +20,10 @@ public class MaxHeapDriver
         Integer[] contents = {1, 2, 3, 4, 5, 6, 7};
 
         // Create instance of MaxHeap
-        MaxHeap<Integer> heap1 = new MaxHeap<>();
-
-        heap1.sequentialInsertion(contents);
+        MaxHeap<Integer> heap1 = new MaxHeap<>(contents, true);
 
         System.out.println(heap1.getNumSwaps());
+
 
         // Let's try with the optimal method
         MaxHeap<Integer> heap2 = new MaxHeap<>(contents);
@@ -34,23 +33,23 @@ public class MaxHeapDriver
 
         // Perform sequential insertions for the 100 integers
         // Insert all 100 characters into an array
-        Integer[] inputContent = new Integer[100];
+        int[] inputContent = new int[100];
 
         while (sc.hasNextLine())
         {
             for (int i = 0; i < inputContent.length; i++)
-            inputContent[i] = Integer.parseInt(sc.nextLine());
+            inputContent[i] = sc.nextInt();
         }
+
+        System.out.println(inputContent);
 
         // Create a max heap using sequential insertions
         MaxHeap<Integer> sequentialInsertionHeap = new MaxHeap<>();
 
-        // Insert the values
-        sequentialInsertionHeap.sequentialInsertion(inputContent);
 
-        System.out.println(sequentialInsertionHeap.getNumSwaps());
-
-
+//        sequentialInsertionHeap.sequentialInsertion(inputContent);
+//
+//        System.out.println(sequentialInsertionHeap.getNumSwaps());
 
 
         // Write to file
@@ -67,5 +66,10 @@ public class MaxHeapDriver
             System.out.println("An error has occurred. ");
             e.printStackTrace();
         }
+    }
+
+    private void outputToFile()
+    {
+
     }
 }
