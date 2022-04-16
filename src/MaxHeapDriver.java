@@ -31,6 +31,25 @@ public class MaxHeapDriver
         MaxHeap<Integer> optimalHeap = new MaxHeap<>(inputContent);
 
 
+        // Read in the random_data input file
+        File randomFile = new File("data_random.txt");
+        Scanner randomScanner = new Scanner(randomFile);
+
+
+        // Read in data form the input file
+        Integer[] randomInputContent = new Integer[100];
+        for (int i = 0; i < 100; i++)
+        {
+            randomInputContent[i] = randomScanner.nextInt();
+        }
+
+        // Perform sequential insertions for the 100 integers
+        MaxHeap<Integer> sequentialRandomHeap = new MaxHeap<>(randomInputContent, true);
+
+        // Perform optimal insertion for the 100 integers
+        MaxHeap<Integer> optimalRandomHeap = new MaxHeap<>(randomInputContent);
+
+
         try
         {
             FileWriter fileWrite = new FileWriter("output.txt");
@@ -44,6 +63,17 @@ public class MaxHeapDriver
             // Write to optimal results to file
             outputToFile(optimalHeap, fileWrite);
 
+            // Create space between the results
+            fileWrite.write("\n\n");
+
+            // Write sequential results to file
+            outputToFile(sequentialRandomHeap, fileWrite);
+
+            // Create space between the results
+            fileWrite.write("\n\n");
+
+            // Write optimal results to file
+            outputToFile(optimalRandomHeap, fileWrite);
 
             fileWrite.close();
         } catch (IOException e)
@@ -51,22 +81,6 @@ public class MaxHeapDriver
             System.out.println("An error has occurred. ");
             e.printStackTrace();
         }
-
-
-        // Read in the random_data input file
-
-
-
-        // Read in data form the input file
-
-
-        // Perform sequential insertions for the 100 integers
-
-
-        // Perform optimal insertion for the 100 integers
-
-
-        // Create try-catch block like before
 
     }
 
