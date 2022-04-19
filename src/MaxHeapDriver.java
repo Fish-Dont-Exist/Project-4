@@ -54,6 +54,7 @@ public class MaxHeapDriver
         {
             FileWriter fileWrite = new FileWriter("output.txt");
 
+            fileWrite.write("Sorted Data: \n");
             // Write sequential results to file
             outputToFile(sequentialHeap, fileWrite, "sequential");
 
@@ -67,6 +68,7 @@ public class MaxHeapDriver
             fileWrite.write("\n\n");
 
             // Write sequential results to file
+            fileWrite.write("Random Data: \n");
             outputToFile(sequentialRandomHeap, fileWrite, "sequential");
 
             // Create space between the results
