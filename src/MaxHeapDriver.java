@@ -30,7 +30,7 @@ public class MaxHeapDriver
         // Perform optimal insertion for the 100 integers
         MaxHeap<Integer> optimalHeap = new MaxHeap<>(inputContent);
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Read in the random_data input file
         File randomFile = new File("data_random.txt");
         Scanner randomScanner = new Scanner(randomFile);
@@ -55,25 +55,25 @@ public class MaxHeapDriver
             FileWriter fileWrite = new FileWriter("output.txt");
 
             // Write sequential results to file
-            outputToFile(sequentialHeap, fileWrite);
+            outputToFile(sequentialHeap, fileWrite, "sequential");
 
             // Create space between the results
             fileWrite.write("\n\n");
 
             // Write to optimal results to file
-            outputToFile(optimalHeap, fileWrite);
+            outputToFile(optimalHeap, fileWrite, "optimal");
 
             // Create space between the results
             fileWrite.write("\n\n");
 
             // Write sequential results to file
-            outputToFile(sequentialRandomHeap, fileWrite);
+            outputToFile(sequentialRandomHeap, fileWrite, "sequential");
 
             // Create space between the results
             fileWrite.write("\n\n");
 
             // Write optimal results to file
-            outputToFile(optimalRandomHeap, fileWrite);
+            outputToFile(optimalRandomHeap, fileWrite, "optimal");
 
             fileWrite.close();
         } catch (IOException e)
@@ -84,13 +84,13 @@ public class MaxHeapDriver
 
     }
 
-    private static void outputToFile(MaxHeap<Integer> insertedHeap, FileWriter fileWrite) throws IOException
+    private static void outputToFile(MaxHeap<Integer> insertedHeap, FileWriter fileWrite, String method) throws IOException
     {
         // Create array from heap
         Comparable[] heapArray = insertedHeap.getHeap();
 
         // Output the first 10 integers of the array to the output file
-        fileWrite.write("Heap built using sequential insertions: ");
+        fileWrite.write("Heap built using " + method + " insertions: ");
         for (int i = 1; i <= 10; i++)
         {
             fileWrite.write( (Integer) heapArray[i] + ",");
